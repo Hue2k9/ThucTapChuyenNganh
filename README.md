@@ -1,4 +1,4 @@
-# ThucTapChuyenNganh - Group 8- language: C#
+## ThucTapChuyenNganh - Group 8- language: C#
 ### Member:
 - Hoàng Minh Huệ
 - Nguyễn Thị Thủy
