@@ -1,0 +1,15 @@
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\bin\Debug\net6.0\Bai 3.exe
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\bin\Debug\net6.0\Bai 3.deps.json
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\bin\Debug\net6.0\Bai 3.runtimeconfig.json
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\bin\Debug\net6.0\Bai 3.dll
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\bin\Debug\net6.0\Bai 3.pdb
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.csproj.AssemblyReference.cache
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.AssemblyInfoInputs.cache
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.AssemblyInfo.cs
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.csproj.CoreCompileInputs.cache
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.dll
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\refint\Bai 3.dll
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.pdb
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\Bai 3.genruntimeconfig.cache
+D:\Ky2_nam 3\ThucTapChuyenNganh\Tuan 1\Bai 3\Bai 3\obj\Debug\net6.0\ref\Bai 3.dll
