@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800" FontFamily="Times New Roman" FontSize="20">
+    <Grid Margin="0,0,0,-48">
+        <Label Content="Bang Tinh Tien Diện" HorizontalAlignment="Center" Margin="100,0,0,0"/>
+        <Label Content="Ho ten khach hang: " HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="200" Height="30"/>
+        <Label Content="Chi so cu: " HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+        <Label Content="So kw trong dinh muc: " HorizontalAlignment="Left" Margin="400,100,0,0" VerticalAlignment="Top" Width="200" Height="30"/>
+        <Label Content="Chi so moi: " HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+        <Label Content="So kw vuot dinh muc: " HorizontalAlignment="Left" Margin="400,150,0,0" VerticalAlignment="Top" Width="200" Height="30"/>
+        <Label Content="So kw tieu thu: " HorizontalAlignment="Left" Margin="100,200,0,0" VerticalAlignment="Top" Width="150" Height="30"/>
+        <TextBox Name="txthoten"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Height="30" Margin="300,50,0,0"/>
+        <TextBox Name="txtcu"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Width="50" Height="30" Margin="300,100,0,0"/>
+        <TextBox Name="txtmoi"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Width="50" Height="30" Margin="300,150,0,0"/>
+        <TextBox Name="txttrongdm"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Width="50" Height="30" Margin="600,100,0,0"/>
+        <TextBox Name="txtvuotdm"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Width="50" Height="30" Margin="600,150,0,0"/>
+        <TextBox Name="txttieuthu"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Width="50" Height="30" Margin="300,200,0,0"/>
+        <Label Content="Tong tien phai tra: " HorizontalAlignment="Left" Margin="140,280,0,0" VerticalAlignment="Top" Width="200" Height="30"/>
+        <TextBox Name="txttien"  HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" Height="30" Margin="100,320,0,0"/>
+        <Button Name="butTinh" Content="Tinh" HorizontalAlignment="Left" Margin="100,360,0,0" Width="100" Height="30" VerticalAlignment="Top"/>
+        <Button Name="butIn" Content="In" HorizontalAlignment="Left" Margin="250,360,0,0" Width="100" Height="30" VerticalAlignment="Top"/>
+        <Button Name="butThoat" Content="Thoat" HorizontalAlignment="Left" Margin="180,400,0,0" Width="100" Height="30" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
