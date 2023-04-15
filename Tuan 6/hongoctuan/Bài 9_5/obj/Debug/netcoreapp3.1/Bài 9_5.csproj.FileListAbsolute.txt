@@ -1,0 +1,20 @@
+D:\TERM5\Net\Bài 9_5\Bài 9_5\bin\Debug\netcoreapp3.1\Bài 9_5.exe
+D:\TERM5\Net\Bài 9_5\Bài 9_5\bin\Debug\netcoreapp3.1\Bài 9_5.deps.json
+D:\TERM5\Net\Bài 9_5\Bài 9_5\bin\Debug\netcoreapp3.1\Bài 9_5.runtimeconfig.json
+D:\TERM5\Net\Bài 9_5\Bài 9_5\bin\Debug\netcoreapp3.1\Bài 9_5.runtimeconfig.dev.json
+D:\TERM5\Net\Bài 9_5\Bài 9_5\bin\Debug\netcoreapp3.1\Bài 9_5.dll
+D:\TERM5\Net\Bài 9_5\Bài 9_5\bin\Debug\netcoreapp3.1\Bài 9_5.pdb
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.csproj.AssemblyReference.cache
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\App.g.cs
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5_MarkupCompile.cache
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5_MarkupCompile.lref
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\MainWindow.baml
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.g.resources
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.GeneratedMSBuildEditorConfig.editorconfig
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.AssemblyInfoInputs.cache
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.AssemblyInfo.cs
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.csproj.CoreCompileInputs.cache
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.dll
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.pdb
+D:\TERM5\Net\Bài 9_5\Bài 9_5\obj\Debug\netcoreapp3.1\Bài 9_5.genruntimeconfig.cache
