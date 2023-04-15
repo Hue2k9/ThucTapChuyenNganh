@@ -1,0 +1,14 @@
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\bin\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.exe
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\bin\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.deps.json
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\bin\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.runtimeconfig.json
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\bin\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.runtimeconfig.dev.json
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\bin\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.dll
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\bin\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.pdb
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.csproj.AssemblyReference.cache
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.GeneratedMSBuildEditorConfig.editorconfig
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.AssemblyInfoInputs.cache
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.AssemblyInfo.cs
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.csproj.CoreCompileInputs.cache
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.dll
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.pdb
+D:\20221\CB\Demo-OOP-Tong-Hop\Demo-OOP-Tong-Hop\obj\Debug\netcoreapp3.1\Demo-OOP-Tong-Hop.genruntimeconfig.cache
