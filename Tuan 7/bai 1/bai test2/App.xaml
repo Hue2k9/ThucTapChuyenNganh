@@ -1,0 +1,32 @@
+﻿<Application x:Class="bai_test2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:bai_test2"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="f" TargetType="TextBox">
+            <Setter Property="Foreground" Value="blue"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontFamily" Value="Times News Roman"/>
+        </Style>
+        <ControlTemplate TargetType="Button" x:Key="st">
+            <Grid>
+                <Border Background="LightBlue" CornerRadius="50"/>
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="but" TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template" Value="{StaticResource st}"/>
+        </Style>
+        <Style x:Key="dt" TargetType="DataGridColumnHeader">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="dtt" TargetType="ContentControl">
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+    </Application.Resources>
+</Application>
