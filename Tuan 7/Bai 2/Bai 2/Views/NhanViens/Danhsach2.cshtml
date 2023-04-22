@@ -1,0 +1,25 @@
+﻿@model  List<Bai_2.Models.NhanVien>
+@{
+    ViewBag.Title = "Danhsach2";
+}
+
+<h2>Danhsach2</h2>
+
+<table border="1">
+    <tr>
+        <th>Ma nhan vien</th>
+        <th>Ho ten </th>
+        <th>Ngày công</th>
+        <th>Lương ngày</th>
+        <th>Tổng tiền</th>
+    </tr>
+    @foreach(var nv in Model){
+        <tr>
+            <td>@nv.manv</td>
+            <td>@nv.hoten</td>
+            <td>@nv.ngaycong</td>
+            <td>@nv.luongngay</td>
+            <td>@nv.ngaycong * @nv.tongtien</td>
+        </tr>
+     }
+</table>
