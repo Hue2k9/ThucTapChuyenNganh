@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2N/NI0CAFTTYVBEBFWpzIBcj8HKDn2u7wh01CQgpxOy3exk28/Lc0TdZJuh7aTERTTTOrDLkUk5IisnamF4RZg==",
+  "dgSpecHash": "9GSNdYZiu7GCzjg/Rc5mR9YRiZLboLExZoKIauHE2NBX5DC/eDGuPswqvnJHZBSTIgYbl6oxYkrD1UgPTPNB+g==",
   "success": true,
   "projectFilePath": "D:\\Documents\\haui-ki2-nam 3\\ThucTapChuyenNganh\\TaiKhoan & Đăng Nhập\\Project\\projectmain\\projectmain\\projectmain.csproj",
   "expectedPackageFiles": [
@@ -101,11 +101,7 @@
     "C:\\Users\\minhh\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\minhh\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\minhh\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\minhh\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\minhh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512",
-    "C:\\Users\\minhh\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
-    "C:\\Users\\minhh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
-    "C:\\Users\\minhh\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512"
+    "C:\\Users\\minhh\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

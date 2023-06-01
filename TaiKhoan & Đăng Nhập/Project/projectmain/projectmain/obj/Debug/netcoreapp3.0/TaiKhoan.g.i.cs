@@ -109,7 +109,7 @@ namespace projectmain {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/projectmain;V1.0.0.0;component/taikhoan.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/projectmain;component/taikhoan.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\TaiKhoan.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
