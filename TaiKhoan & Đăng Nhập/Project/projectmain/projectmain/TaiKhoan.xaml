@@ -1,0 +1,47 @@
+﻿<Window x:Class="projectmain.TaiKhoan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projectmain"
+        mc:Ignorable="d"
+        Title="TaiKhoan" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Quản Lý Tài Khoản" HorizontalAlignment="Center" FontWeight="Bold" FontSize="30" Margin="0,20,0,0" Foreground="Blue" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label Content="Tên Đăng Nhập " Grid.Row="1" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,20,0,0" Foreground="Blue" />
+        <TextBox x:Name="username" Grid.Row="1" FontSize="25" Grid.Column="1" Height="50" Width="400" Margin="-120,0,0,0"/>
+        <Label Content="Mật Khẩu" Grid.Row="2" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,20,0,0" Foreground="Blue"/>
+        <PasswordBox x:Name="password" Grid.Row="2" FontSize="25" Grid.Column="1" Height="50" Margin="41,11,204,11"/>
+        <Label Content="Phân Quyền" Grid.Row="3" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,20,0,0" Foreground="Blue"/>
+        <TextBox x:Name="phanquyen" Grid.Row="3" FontSize="25" Grid.Column="1" Height="50" Width="400" Margin="-120,0,0,0"/>
+        <Label Content="Mã NV" Grid.Row="4" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,20,0,0" Foreground="Blue"/>
+        <TextBox x:Name="manv" Grid.Row="4" FontSize="25" Grid.Column="1" Height="50" Width="400" Margin="-120,0,0,0"/>
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="btn1" Content="Thêm" Height="50" Width="150" Background="Green" FontSize="20" Foreground="White" FontWeight="Bold" Click="btn1_Click"/>
+            <Button x:Name="btn2" Content="Sửa" Height="50" Width="150" Background="Green" FontSize="20" Foreground="White" FontWeight="Bold" Margin="30,0,0,0" Click="btn2_Click"/>
+            <Button x:Name="btn3" Content="Xóa" Height="50" Width="150" Background="Green" FontSize="20" Foreground="White" FontWeight="Bold" Margin="30,0,0,0" Click="btn3_Click"/>
+        </StackPanel>
+        <DataGrid Margin="0,60,0,0" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tên DN" Width="100" />
+                <DataGridTextColumn Header="Mật Khẩu" Width="100"/>
+                <DataGridTextColumn Header="Phân Quyền" Width="100"/>
+                <DataGridTextColumn Header="Mã NV" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
