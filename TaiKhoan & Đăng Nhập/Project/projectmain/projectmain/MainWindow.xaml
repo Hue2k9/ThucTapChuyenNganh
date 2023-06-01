@@ -1,0 +1,30 @@
+﻿<Window x:Class="projectmain.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projectmain"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" Background="AliceBlue"
+        Title="Trang Chủ" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Chào mừng bạn đến với phần mềm quản lý Cửa Hàng" HorizontalAlignment="Center" FontWeight="Bold" FontSize="30" Margin="0,20,0,0" Foreground="Blue" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label Content="User's name: " Grid.Row="1" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,50,0,0" Foreground="Blue" />
+        <TextBox x:Name="username" Grid.Row="1" FontSize="25" Grid.Column="1" Height="50" Width="400" Margin="-120,30,0,0"/>
+        <Label Content="Password" Grid.Row="2" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,50,0,0" Foreground="Blue"/>
+        <PasswordBox x:Name="password" Grid.Row="2" FontSize="25" Grid.Column="1" Height="50" Width="500" Margin="-20,30,0,0"/>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="btn1" Content="Đăng Nhập" Height="50" Width="150" Background="Green" FontSize="20" Foreground="White" FontWeight="Bold" Click="btn1_Click"/>
+            <Button x:Name="btn2" Content="Hủy Bỏ" Height="50" Width="150" Background="Green" FontSize="20" Foreground="White" FontWeight="Bold" Margin="30,0,0,0" Click="btn2_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
