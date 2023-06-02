@@ -24,6 +24,7 @@ namespace Project_BookStore
         {
             InitializeComponent();
             QuanLyHoaDon qlhd = new QuanLyHoaDon();
+            this.Close();
             qlhd.Show();
         }
     }

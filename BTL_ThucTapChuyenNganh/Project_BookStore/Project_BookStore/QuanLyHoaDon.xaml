@@ -6,7 +6,43 @@
         xmlns:local="clr-namespace:Project_BookStore"
         mc:Ignorable="d"
         Title="QuanLyHoaDon" Height="450" Width="800">
-    <Grid Margin="10,275,-10,-71">
-      
+    <Grid Loaded="Grid_Loaded">
+        <Label Content="Họ tên" HorizontalAlignment="Left" Margin="37,47,0,0" VerticalAlignment="Top"/>
+        <Label Content="Số điện thoại" HorizontalAlignment="Left" Margin="37,89,0,0" VerticalAlignment="Top"/>
+        <Label Content="Địa chỉ" HorizontalAlignment="Left" Margin="37,127,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtHoTen" HorizontalAlignment="Left" Margin="129,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSoDienThoai" HorizontalAlignment="Left" Margin="129,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDiaChi" HorizontalAlignment="Left" Margin="129,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tên sản phẩm" HorizontalAlignment="Left" Margin="321,47,0,0" VerticalAlignment="Top"/>
+        <Label Content="Số lượng" HorizontalAlignment="Left" Margin="324,85,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSoLuong" HorizontalAlignment="Left" Margin="415,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nhân viên" HorizontalAlignment="Left" Margin="322,127,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTrangThaiDon" HorizontalAlignment="Left" Margin="129,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Trạng thái đơn" HorizontalAlignment="Left" Margin="37,163,0,0" VerticalAlignment="Top"/>
+        <Label Content="QUẢN LÝ HÓA ĐƠN" HorizontalAlignment="Left" Margin="337,3,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgvHoaDon" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,217,10,40" Height="NaN" Width="NaN" AutoGenerateColumns="False" AlternatingRowBackground="AntiqueWhite" CanUserAddRows="False" SelectedCellsChanged="dgvHoaDon_SelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã HĐ" Binding="{Binding MaHd}" Width="*"/>
+                <DataGridTextColumn Header="Họ tên" Binding="{Binding HoTen}" Width="*" />
+                <DataGridTextColumn Header="Số điện thoại" Binding="{Binding SoDienThoai}" Width="*" />
+                <DataGridTextColumn Header="Địa chỉ" Binding="{Binding DiaChi}" Width="*"/>
+                <DataGridTextColumn Header="Mã SP" Binding="{Binding MaSp}" Width="*"/>
+                <DataGridTextColumn Header="Tên SP" Binding="{Binding TenSanPham}" Width="*"/>
+                <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="*"/>
+                <DataGridTextColumn Header="Giá bán" Binding="{Binding GiaBan}" Width="*"/>
+                <DataGridTextColumn Header="Thành tiền" Binding="{Binding ThanhTien}" Width="*"/>
+                <DataGridTextColumn Header="Trạng thái" Binding="{Binding TrangThaiDon}" Width="*"/>
+                <DataGridTextColumn Header="Mã NV" Binding="{Binding MaNv}" Width="*"/>
+                <DataGridTextColumn Header="Thời gian mua" Binding="{Binding ThoiGianMua}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnThem" Content="Thêm" HorizontalAlignment="Left" Margin="651,56,0,0" VerticalAlignment="Top" Height="24" Width="59" Click="btnThem_Click"/>
+        <Button x:Name="btnSua" Content="Sửa" HorizontalAlignment="Left" Margin="651,98,0,0" VerticalAlignment="Top" Height="24" Width="59" Click="btnSua_Click"/>
+        <Button x:Name="btnXoa" Content="Xóa" HorizontalAlignment="Left" Margin="651,140,0,0" VerticalAlignment="Top" Height="24" Width="59" Click="btnXoa_Click"/>
+        <Button x:Name="btnTimKiem" Content="Tìm kiếm" HorizontalAlignment="Left" Margin="651,176,0,0" VerticalAlignment="Top" Height="24" Width="59"/>
+        <Button x:Name="btnXuatFile" Content="Xuất file" HorizontalAlignment="Left" Margin="652,16,0,0" VerticalAlignment="Top" Height="24" Width="58" Click="btnXuatFile_Click"/>
+        <ComboBox x:Name="cboSanPham" HorizontalAlignment="Left" Margin="415,51,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboNhanVien" HorizontalAlignment="Left" Margin="415,129,0,0" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Window>
