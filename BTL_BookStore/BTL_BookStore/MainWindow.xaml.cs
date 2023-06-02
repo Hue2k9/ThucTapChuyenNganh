@@ -22,6 +22,8 @@ namespace BTL_BookStore
     {
         public MainWindow()
         {
+            HoaDon hoaDon = new HoaDon();
+            hoaDon.Show();
             InitializeComponent();
         }
     }

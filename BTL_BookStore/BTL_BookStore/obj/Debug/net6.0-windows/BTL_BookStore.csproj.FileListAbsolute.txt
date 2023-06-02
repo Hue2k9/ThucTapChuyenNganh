@@ -121,3 +121,5 @@ D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_BookStore\BTL_BookStore\bin\D
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_BookStore\BTL_BookStore\bin\Debug\net6.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_BookStore\BTL_BookStore\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_BookStore\BTL_BookStore\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_BookStore\BTL_BookStore\obj\Debug\net6.0-windows\HoaDon.g.cs
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_BookStore\BTL_BookStore\obj\Debug\net6.0-windows\HoaDon.baml
