@@ -6,20 +6,17 @@
         xmlns:local="clr-namespace:Project_BookStore"
         mc:Ignorable="d"
         Title="QuanLyNhanVien" Height="450" Width="800" Loaded="Window_Loaded"  >
-    <Grid Margin="0,-17,0,17">
-        <Label Content="Mã nhân viên:" HorizontalAlignment="Left" Margin="63,104,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-        <Label Content="Tên nhân viên:" HorizontalAlignment="Left" Margin="63,157,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+    <Grid x:Name="btnThongKe1" Margin="0,-17,0,17">
+        <Label Content="Tên nhân viên:" HorizontalAlignment="Left" Margin="63,102,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
         <Label Content="Giới tính:" HorizontalAlignment="Left" Margin="63,209,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
         <Label Content="Địa chỉ:" HorizontalAlignment="Left" Margin="439,107,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
         <Label Content="Điện thoại:" HorizontalAlignment="Left" Margin="439,157,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="439,206,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
-        <TextBox x:Name="txtMa" HorizontalAlignment="Left" Margin="168,107,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
-        <TextBox x:Name="txtTen" HorizontalAlignment="Left" Margin="168,157,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="63,157,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <TextBox x:Name="txtTen" HorizontalAlignment="Left" Margin="168,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
         <RadioButton x:Name="radNam" Content="Nam" HorizontalAlignment="Left" Margin="180,217,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radNu" Content="Nữ" HorizontalAlignment="Left" Margin="271,217,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboDiaChi" HorizontalAlignment="Left" Margin="552,104,0,0" VerticalAlignment="Top" Width="200" Height="30"/>
         <TextBox x:Name="txtDienThoai" HorizontalAlignment="Left" Margin="552,157,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="552,207,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="168,157,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
         <Button Content="Thêm"  Background="Green" Foreground="White" HorizontalAlignment="Left" Margin="117,279,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnThem"/>
         <Button x:Name="btnSua" Content="Sửa"  Background="Green" Foreground="White" HorizontalAlignment="Left" Margin="249,279,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnSua_Click"/>
         <Button Content="Xóa"  Background="Green" Foreground="White" HorizontalAlignment="Left" Margin="370,279,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="btnXoa_Click"/>
@@ -40,5 +37,6 @@
         </DataGrid>
         <Label Content="QUẢN LÝ NHÂN VIÊN" FontWeight="Bold" Foreground="Red" FontSize="25" HorizontalAlignment="Left" Margin="271,30,0,0" VerticalAlignment="Top" Width="292" Height="45"/>
         <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="722,30,0,0" VerticalAlignment="Top" Height="25" Width="68" Click="btnThoat_Click"/>
+        <TextBox x:Name="txtDiaChi" HorizontalAlignment="Left" Margin="552,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
     </Grid>
 </Window>

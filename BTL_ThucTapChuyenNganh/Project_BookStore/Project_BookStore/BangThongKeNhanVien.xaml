@@ -1,0 +1,26 @@
+﻿<Window x:Class="Project_BookStore.BangThongKeNhanVien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_BookStore"
+        mc:Ignorable="d"
+        Title="BangThongKeNhanVien" Height="450" Width="800">
+    <Grid Loaded="Grid_Loaded">
+        <DataGrid Name="dgvNhanVien" Margin="48,99,48,99"
+                  AutoGenerateColumns="False"
+                  AlternatingRowBackground="AntiqueWhite"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã nhân viên" Binding="{Binding MaNv}" Width="*"/>
+                <DataGridTextColumn Header="Tên nhân viên" Binding="{Binding TenNv}" Width="*"/>
+                <DataGridTextColumn Header="Giới tính" Binding="{Binding GioiTinh}" Width="*"/>
+                <DataGridTextColumn Header="Địa chỉ" Binding="{Binding DiaChi}" Width="*"/>
+                <DataGridTextColumn Header="Điện thoại" Binding="{Binding SoDt}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="BẢNG THỐNG KÊ NHÂN VIÊN" FontWeight="Bold" HorizontalAlignment="Left" Margin="300,36,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="722,384,0,0" VerticalAlignment="Top" Height="30" Width="70" Click="btnThoat_Click"/>
+    </Grid>
+</Window>

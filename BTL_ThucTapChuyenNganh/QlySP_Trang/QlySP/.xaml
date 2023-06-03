@@ -1,0 +1,39 @@
+﻿<Window x:Class="QlySP.QLYSP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QlySP"
+        mc:Ignorable="d"
+        Title="QLYSP" Height="983" Width="1000" FontSize="20" FontFamily="Times New Roman">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Quản lý sản phẩm" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="51" Width="292"/>
+        <Rectangle HorizontalAlignment="Left" Height="196" Margin="70,121,0,0" Stroke="Black" VerticalAlignment="Top" Width="844"/>
+        <Label Content="Mã sản phẩm:" HorizontalAlignment="Left" Margin="92,158,0,0" VerticalAlignment="Top" Height="33" Width="125"/>
+        <Label Content="Tên sản phẩm:" HorizontalAlignment="Left" Margin="89,205,0,0" VerticalAlignment="Top" Height="33" Width="128"/>
+        <Label Content="Số lượng tồn:" HorizontalAlignment="Left" Margin="89,249,0,0" VerticalAlignment="Top" Width="128" Height="33"/>
+        <Label Content="Giới thiệu:" HorizontalAlignment="Left" Margin="549,158,0,0" VerticalAlignment="Top" Height="33" Width="97"/>
+        <Label Content="Giá bán:" HorizontalAlignment="Left" Margin="549,205,0,0" VerticalAlignment="Top" Width="97" Height="33"/>
+        <Label Content="Bảo quản:" HorizontalAlignment="Left" Margin="554,249,0,0" VerticalAlignment="Top" Height="33" Width="92"/>
+        <TextBox Name="txtMasp" HorizontalAlignment="Left" Margin="239,166,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="25"/>
+        <TextBox Name="txtTensp" HorizontalAlignment="Left" Margin="239,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="25"/>
+        <TextBox Name="txtSlg" HorizontalAlignment="Left" Margin="239,257,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="25"/>
+        <TextBox Name="txtGioiThieu" HorizontalAlignment="Left" Margin="665,158,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="25"/>
+        <TextBox Name="txtGiaBan" HorizontalAlignment="Left" Margin="665,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="25"/>
+        <TextBox Name="txtBaoQuan" HorizontalAlignment="Left" Margin="665,253,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Height="25"/>
+        <DataGrid Name="tblSP" Margin="47,449,47,0" Height="384" VerticalAlignment="Top"/>
+        <Button  Name="btnThem" Content="Thêm" HorizontalAlignment="Left" Margin="127,381,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button  Name="btnSua" Content="Sửa" HorizontalAlignment="Left" Margin="313,381,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button  Name="btnXoa" Content="Xóa" HorizontalAlignment="Left" Margin="526,381,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button  Name="btnTim" Content="Tìm kiếm" HorizontalAlignment="Left" Margin="735,381,0,0" VerticalAlignment="Top" Width="99"/>
+
+    </Grid>
+</Window>
