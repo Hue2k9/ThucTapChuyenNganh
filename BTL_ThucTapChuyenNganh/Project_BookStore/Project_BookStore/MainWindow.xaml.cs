@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_BookStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +24,40 @@ namespace Project_BookStore
         public MainWindow()
         {
             InitializeComponent();
-            QuanLyHoaDon qlhd = new QuanLyHoaDon();
+            QuanLyNhanVien nv = new QuanLyNhanVien();
             this.Close();
-            qlhd.Show();
+            nv.Show();
+        }
+        ThucTapChuyenNganhHTTTContext ttcn = new ThucTapChuyenNganhHTTTContext();
+        private void btn1_Click(object sender, RoutedEventArgs e)
+        {
+
+            var them = ttcn.TaiKhoans.SingleOrDefault(tk => tk.TenDn.Equals(username.Text));
+            var them2 = ttcn.TaiKhoans.SingleOrDefault(tk => tk.MatKhau.Equals(password.Password) && tk.TenDn.Equals(username.Text));
+            if (them != null)
+            {
+                if (them2 != null)
+                {
+                    DanhMucQuanLy dmql = new DanhMucQuanLy();
+                    dmql.Show();
+                    this.Close();
+                }
+                else
+                {
+
+                    MessageBox.Show("Tài khoản hoặc mật Khẩu không chính xác. Xin vui lòng thử lại sau.", "Thông Báo");
+                }
+            }
+            else
+            { 
+                MessageBox.Show("Tên đăng nhập không hợp lệ", "Thông Báo");
+            }
+
+        }
+
+        private void btn2_Click(object sender, RoutedEventArgs e)
+        {
+            //Window.
         }
     }
 }

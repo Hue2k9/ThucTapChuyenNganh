@@ -201,7 +201,6 @@ namespace Project_BookStore
         {
             VistaFolderBrowserDialog folderBrowserDialog = new VistaFolderBrowserDialog();
             folderBrowserDialog.Description = "Chọn thư mục để lưu trữ file Excel";
-
             if (folderBrowserDialog.ShowDialog() == true)
             {
                 string folderPath = folderBrowserDialog.SelectedPath;
@@ -229,6 +228,13 @@ namespace Project_BookStore
 
                 MessageBox.Show("Dữ liệu đã được ghi vào tệp Excel!", "Thông báo");
             }
+        }
+
+        private void btn_thoat_Click(object sender, RoutedEventArgs e)
+        {
+            DanhMucQuanLy danhMucQuanLy = new DanhMucQuanLy();
+            this.Close();
+            danhMucQuanLy.Show();
         }
     }
 }

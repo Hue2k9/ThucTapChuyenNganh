@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\App.xaml
-2-1088289167
+5715007423
 
-9-120686160
+12-858327181
 2381476842767
-MainWindow.xaml;QuanLyHoaDon.xaml;
+DanhMucQuanLy.xaml;MainWindow.xaml;QuanLyHoaDon.xaml;QuanLyNhanVien.xaml;QuanLyTaiKhoan.xaml;
 
 False
 

@@ -135,3 +135,9 @@ D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_Bo
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\bin\Debug\net6.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\bin\Debug\net6.0-windows\System.Security.Cryptography.Pkcs.dll
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\QuanLyTaiKhoan.g.cs
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\QuanLyTaiKhoan.baml
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\DanhMucQuanLy.g.cs
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\DanhMucQuanLy.baml
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\QuanLyNhanVien.g.cs
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\QuanLyNhanVien.baml

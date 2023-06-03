@@ -7,15 +7,33 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="DanhMucQuanLy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="QuanLyHoaDon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="QuanLyNhanVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="QuanLyTaiKhoan.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="DanhMucQuanLy.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="QuanLyHoaDon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="QuanLyNhanVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="QuanLyTaiKhoan.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
