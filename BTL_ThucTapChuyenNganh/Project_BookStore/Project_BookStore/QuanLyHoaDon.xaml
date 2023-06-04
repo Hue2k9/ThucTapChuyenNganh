@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_BookStore"
         mc:Ignorable="d"
-        Title="QuanLyHoaDon" Height="450" Width="800" >
+        Title="QuanLyHoaDon" Height="450" Width="800" Background="#EEEEEE" >
     <Grid Loaded="Grid_Loaded">
         <Label Content="Họ tên" HorizontalAlignment="Left" Margin="37,47,0,0" VerticalAlignment="Top"/>
         <Label Content="Số điện thoại" HorizontalAlignment="Left" Margin="37,89,0,0" VerticalAlignment="Top"/>

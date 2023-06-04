@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_BookStore"
         mc:Ignorable="d"
-        Title="DanhMucQuanLy" Height="450" Width="800">
+        Title="DanhMucQuanLy" Height="450" Width="800" Background="#EEEEEE">
     <Grid>
-        <Label Content="QUẢN LÝ CỬA HÀNG SÁCH" HorizontalAlignment="Left" Foreground="Red" Margin="249,27,0,0" FontSize="25" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="QUẢN LÝ CỬA HÀNG SÁCH" HorizontalAlignment="Left" Foreground="Red" Margin="249,27,0,0" FontSize="20" VerticalAlignment="Top" FontWeight="Bold"/>
         <Button HorizontalAlignment="Left" Margin="496,191,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_qlSanPham" Content="Quản lý sản phẩm" Background="Green" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="84,122,0,0" VerticalAlignment="Top" Height="40" Width="206" Click="btn_qlSanPham_Click"/>
         <Button x:Name="btn_QuanLyNhanVien" Content="Quản lý nhân viên" Background="Green" Foreground="White" FontWeight="Bold" HorizontalAlignment="Left" Margin="84,250,0,0" VerticalAlignment="Top" Height="40" Width="206" Click="btn_QuanLyNhanVien_Click"/>

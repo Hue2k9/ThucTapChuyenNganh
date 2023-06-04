@@ -24,9 +24,6 @@ namespace Project_BookStore
         public MainWindow()
         {
             InitializeComponent();
-            QuanLyNhanVien nv = new QuanLyNhanVien();
-            this.Close();
-            nv.Show();
         }
         ThucTapChuyenNganhHTTTContext ttcn = new ThucTapChuyenNganhHTTTContext();
         private void btn1_Click(object sender, RoutedEventArgs e)

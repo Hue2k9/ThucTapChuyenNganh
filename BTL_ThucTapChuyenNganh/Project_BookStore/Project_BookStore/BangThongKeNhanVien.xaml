@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_BookStore"
         mc:Ignorable="d"
-        Title="BangThongKeNhanVien" Height="450" Width="800">
+        Title="BangThongKeNhanVien" Height="450" Width="800" Background="#EEEEEE">
     <Grid Loaded="Grid_Loaded">
         <DataGrid Name="dgvNhanVien" Margin="48,99,48,99"
                   AutoGenerateColumns="False"
@@ -20,7 +20,7 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="BẢNG THỐNG KÊ NHÂN VIÊN" FontWeight="Bold" HorizontalAlignment="Left" Margin="300,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="BẢNG THỐNG KÊ NHÂN VIÊN" Foreground="Red" FontWeight="Bold" HorizontalAlignment="Left" Margin="300,36,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="722,384,0,0" VerticalAlignment="Top" Height="30" Width="70" Click="btnThoat_Click"/>
     </Grid>
 </Window>

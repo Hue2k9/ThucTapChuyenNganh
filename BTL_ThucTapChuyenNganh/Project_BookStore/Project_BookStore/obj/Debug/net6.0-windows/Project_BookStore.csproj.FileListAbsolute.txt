@@ -143,3 +143,5 @@ D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_Bo
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\QuanLyNhanVien.baml
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\BangThongKeNhanVien.g.cs
 D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\BangThongKeNhanVien.baml
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\QuanLySanPham.g.cs
+D:\Documents\haui-ki2-nam 3\ThucTapChuyenNganh\BTL_ThucTapChuyenNganh\Project_BookStore\Project_BookStore\obj\Debug\net6.0-windows\QuanLySanPham.baml

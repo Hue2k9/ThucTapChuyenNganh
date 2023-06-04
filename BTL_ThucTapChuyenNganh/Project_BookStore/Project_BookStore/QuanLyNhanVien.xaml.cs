@@ -2,6 +2,7 @@
 using Project_BookStore.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -126,7 +127,24 @@ namespace Project_BookStore
 
         private void btnTim_Click(object sender, RoutedEventArgs e)
         {
-
+            var check = db.NhanViens.FirstOrDefault(t => t.TenNv.Contains(txtTen.Text));
+            if (check != null)
+            {
+                var query = db.NhanViens.Where(t => t.TenNv.Contains(txtTen.Text)).Select(nv => new
+                {
+                    nv.MaNv,
+                    nv.TenNv,
+                    GioiTinh = (bool)nv.GioiTinh ? "Nam" : "Nữ",
+                    nv.DiaChi,
+                    nv.SoDt,
+                    nv.Email
+                });
+                dgvNhanVien.ItemsSource = query.ToList();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm nào", "Thông báo");
+            }
         }
 
         private void btnThongKe_Click(object sender, RoutedEventArgs e)

@@ -26,7 +26,9 @@ namespace Project_BookStore
 
         private void btn_qlSanPham_Click(object sender, RoutedEventArgs e)
         {
-
+            QuanLySanPham sp = new QuanLySanPham();
+            this.Close();
+            sp.Show();
         }
 
         private void btn_QuanLyHoaDon_Click(object sender, RoutedEventArgs e)
@@ -55,6 +57,7 @@ namespace Project_BookStore
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
+           
         }
     }
 }

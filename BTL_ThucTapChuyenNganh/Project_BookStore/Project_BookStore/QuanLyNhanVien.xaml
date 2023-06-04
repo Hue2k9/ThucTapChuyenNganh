@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_BookStore"
         mc:Ignorable="d"
-        Title="QuanLyNhanVien" Height="450" Width="800" Loaded="Window_Loaded"  >
+        Title="QuanLyNhanVien" Height="450" Width="800" Loaded="Window_Loaded" Background="#EEEEEE" >
     <Grid x:Name="btnThongKe1" Margin="0,-17,0,17">
         <Label Content="Tên nhân viên:" HorizontalAlignment="Left" Margin="63,102,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
         <Label Content="Giới tính:" HorizontalAlignment="Left" Margin="63,209,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
@@ -35,7 +35,7 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="QUẢN LÝ NHÂN VIÊN" FontWeight="Bold" Foreground="Red" FontSize="25" HorizontalAlignment="Left" Margin="271,30,0,0" VerticalAlignment="Top" Width="292" Height="45"/>
+        <Label Content="QUẢN LÝ NHÂN VIÊN" FontWeight="Bold" Foreground="Red" FontSize="20" HorizontalAlignment="Left" Margin="271,30,0,0" VerticalAlignment="Top" Width="292" Height="45"/>
         <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="722,30,0,0" VerticalAlignment="Top" Height="25" Width="68" Click="btnThoat_Click"/>
         <TextBox x:Name="txtDiaChi" HorizontalAlignment="Left" Margin="552,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
     </Grid>

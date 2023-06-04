@@ -21,6 +21,9 @@ using MahApps.Metro.Controls.Dialogs;
 using Ookii.Dialogs.Wpf;
 using System.IO;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System.Drawing;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Project_BookStore
 {
@@ -213,20 +216,133 @@ namespace Project_BookStore
                 {
                     // Đặt LicenseContext thành LicenseContext.NonCommercial
                     ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-                    // Lấy Sheet đầu tiên trong tệp Excel
+                    var query = from hd in db.HoaDons
+                                join sp in db.SanPhams on hd.MaSp equals sp.MaSp
+                                let ThanhTien = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", hd.SoLuong * sp.GiaBan)
+                                let GiaBan = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", sp.GiaBan)
+                                select new
+                                {
+                                    hd.MaHd,
+                                    hd.HoTen,
+                                    hd.SoDienThoai,
+                                    hd.DiaChi,
+                                    hd.TrangThaiDon,
+                                    hd.MaSp,
+                                    TenSanPham = sp.TenSp,
+                                    hd.SoLuong,
+                                    GiaBan,
+                                    ThanhTien,
+                                    hd.MaNv,
+                                    hd.ThoiGianMua
+                                };
                     ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[0];
-
-                    // Ghi dữ liệu vào các ô trong tệp Excel
-                    worksheet.Cells["A1"].Value = "Dữ liệu 1";
-                    worksheet.Cells["B1"].Value = "Dữ liệu 2";
-                    // ...
-
-                    // Lưu và đóng tệp Excel
+                    int rowIndex = 5; 
+                    foreach (var item in query)
+                    {
+                        
+                        DuplicateRow(worksheet, rowIndex);
+                        worksheet.Cells[rowIndex, 1].Value = item.MaHd;
+                        worksheet.Cells[rowIndex, 2].Value = item.HoTen;
+                        worksheet.Cells[rowIndex, 3].Value = item.SoDienThoai;
+                        worksheet.Cells[rowIndex, 4].Value = item.DiaChi;
+                        worksheet.Cells[rowIndex, 5].Value = item.MaSp;
+                        worksheet.Cells[rowIndex, 6].Value = item.TenSanPham;
+                        worksheet.Cells[rowIndex, 7].Value = item.SoLuong;
+                        worksheet.Cells[rowIndex, 8].Value = item.GiaBan;
+                        worksheet.Cells[rowIndex, 9].Formula = $"= {worksheet.Cells[rowIndex, 7].Address} * {worksheet.Cells[rowIndex, 8].Address}";
+                        worksheet.Cells[rowIndex, 10].Value = item.TrangThaiDon;
+                        worksheet.Cells[rowIndex, 11].Value = item.MaNv;
+                        worksheet.Cells[rowIndex, 12].Value = item.ThoiGianMua?.ToString("dd/MM/yyyy HH:mm:ss");
+                        rowIndex++;
+                    }
+                    worksheet.Cells[rowIndex, 8].Value = "Tổng tiền";
+                    worksheet.Cells[rowIndex, 9].Formula = $"=SUM({worksheet.Cells[5, 9].Address}:{worksheet.Cells[rowIndex - 1, 9].Address})";
+                    
                     excelPackage.Save();
                 }
 
                 MessageBox.Show("Dữ liệu đã được ghi vào tệp Excel!", "Thông báo");
+            }
+        }
+
+        private void DuplicateRow(ExcelWorksheet worksheet, int sourceRowIndex)
+        {
+            int targetRowIndex = sourceRowIndex + 1; // Tạo chỉ số hàng đích bằng cách tăng chỉ số hàng nguồn lên 1
+            var sourceRow = worksheet.Row(sourceRowIndex);
+            var targetRow = worksheet.Row(targetRowIndex);
+
+            // Sao chép style của hàng nguồn sang hàng đích
+            targetRow.Style.Font = sourceRow.Style.Font;
+            targetRow.Style.Fill = sourceRow.Style.Fill;
+            targetRow.Style.Border.Bottom.Style = sourceRow.Style.Border.Bottom.Style;
+
+            // Sao chép các cell trong hàng nguồn sang hàng đích
+            for (int colIndex = 1; colIndex <= worksheet.Dimension.Columns; colIndex++)
+            {
+                var sourceCell = worksheet.Cells[sourceRowIndex, colIndex];
+                var targetCell = worksheet.Cells[targetRowIndex, colIndex];
+
+                // Sao chép giá trị của cell
+                targetCell.Value = sourceCell.Value;
+                targetCell.Style.Font = sourceCell.Style.Font;
+                targetCell.Style.Fill.PatternType = sourceCell.Style.Fill.PatternType;
+
+                if (sourceCell.Style.Border.Bottom.Color != null)
+                {
+                    if (sourceCell.Style.Border.Bottom.Style != null)
+                    {
+                        targetCell.Style.Border.Bottom.Style = sourceCell.Style.Border.Bottom.Style;
+
+                        if (sourceCell.Style.Border.Bottom.Color != null)
+                        {
+                            targetCell.Style.Border.Bottom.Color.SetColor(System.Drawing.ColorTranslator.FromHtml(sourceCell.Style.Border.Bottom.Color.Rgb));
+                        }
+                    }
+
+                }
+              
+                if (sourceCell.Style.Border.Top.Color != null)
+                {
+                    if (sourceCell.Style.Border.Top.Style != null)
+                    {
+                        targetCell.Style.Border.Top.Style = sourceCell.Style.Border.Top.Style;
+
+                        if (sourceCell.Style.Border.Top.Color != null)
+                        {
+                            targetCell.Style.Border.Top.Color.SetColor(System.Drawing.ColorTranslator.FromHtml(sourceCell.Style.Border.Top.Color.Rgb));
+                        }
+                    }
+
+                }
+            
+                if (sourceCell.Style.Border.Left.Color != null)
+                {
+                    if (sourceCell.Style.Border.Left.Style != null)
+                    {
+                        targetCell.Style.Border.Left.Style = sourceCell.Style.Border.Left.Style;
+
+                        if (sourceCell.Style.Border.Left.Color != null)
+                        {
+                            targetCell.Style.Border.Left.Color.SetColor(System.Drawing.ColorTranslator.FromHtml(sourceCell.Style.Border.Left.Color.Rgb));
+                        }
+                    }
+
+                }
+              
+                if (sourceCell.Style.Border.Right.Color != null)
+                {
+                    if (sourceCell.Style.Border.Right.Style != null)
+                    {
+                        targetCell.Style.Border.Right.Style = sourceCell.Style.Border.Right.Style;
+
+                        if (sourceCell.Style.Border.Right.Color != null)
+                        {
+                            targetCell.Style.Border.Right.Color.SetColor(System.Drawing.ColorTranslator.FromHtml(sourceCell.Style.Border.Right.Color.Rgb));
+                        }
+                    }
+
+                }
+              
             }
         }
 

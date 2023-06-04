@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_BookStore"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="#EEEEEE">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -17,7 +17,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Content="Chào mừng bạn đến với phần mềm quản lý Cửa Hàng" HorizontalAlignment="Left" FontWeight="Bold" FontSize="25" Margin="67,54,0,84" Foreground="Red" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="733" Grid.RowSpan="2"/>
+        <Label Content="Chào mừng bạn đến với phần mềm quản lý cửa hàng" HorizontalAlignment="Left" FontWeight="Bold" FontSize="28" Margin="34,54,0,84" Foreground="Red" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="732" Grid.RowSpan="2"/>
         <Label Content="User's name: " Grid.Row="1" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,50,0,0" />
         <TextBox x:Name="username" Grid.Row="1" FontSize="25" Grid.Column="1" Height="50" Width="400" Margin="-120,30,0,0"/>
         <Label Content="Password" Grid.Row="2" Grid.Column="0" FontSize="25" HorizontalAlignment="Center" Margin="10,50,0,0"/>

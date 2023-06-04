@@ -19,6 +19,9 @@
     <Compile Update="QuanLyNhanVien.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="QuanLySanPham.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="QuanLyTaiKhoan.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="QuanLyNhanVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="QuanLySanPham.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="QuanLyTaiKhoan.xaml">
