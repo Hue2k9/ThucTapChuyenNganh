@@ -35,7 +35,7 @@
             <Button x:Name="btn22" Content="Sửa" Height="35" Width="150" Background="Green" FontSize="20" Foreground="White" FontWeight="Bold" Margin="30,0,0,0" Click="btn22_Click"/>
             <Button x:Name="btn33" Content="Xóa" Height="35" Width="150" Background="Green" FontSize="20" Foreground="White" FontWeight="Bold" Margin="30,0,0,0" Click="btn33_Click"/>
         </StackPanel>
-        <DataGrid x:Name="data" AutoGenerateColumns="False" Margin="0,60,0,0" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3">
+        <DataGrid x:Name="data" AutoGenerateColumns="False" Margin="0,60,0,0" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3" SelectedCellsChanged="data_SelectedCellsChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Tên DN" Width="*" Binding="{Binding TenDn}" />
                 <DataGridTextColumn Header="Mật Khẩu" Width="*" Binding="{Binding MatKhau}"/>
@@ -44,5 +44,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btn_thoat" Grid.Column="1" Background="Green" Foreground="White" Content="Thoát" HorizontalAlignment="Left" Margin="529,19,0,0" VerticalAlignment="Top" Height="28" Width="80" Click="btn_thoat_Click"/>
+        <Button x:Name="btnDatLai" Grid.Column="1" Content="Đặt lại" HorizontalAlignment="Left" Margin="491,22,0,12" Grid.Row="4" Click="btnDatLai_Click"/>
     </Grid>
 </Window>

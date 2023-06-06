@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -45,48 +46,94 @@ namespace Project_BookStore
             dgvNhanVien.ItemsSource = query.ToList();
         }
 
+        private bool CheckDL()
+        {
+            string tb = "";
+            if (txtDiaChi.Text=="" || txtTen.Text=="" || txtDienThoai.Text=="" || txtEmail.Text == "")
+            {
+                tb += "\nBạn cần nhập đầy đủ dữ liệu!";
+            }
+            else
+            {
+                if (!Regex.IsMatch(txtDienThoai.Text, @"^(03|05|07|08|09)+([0-9]{8})$"))
+                {
+                    tb += "\nSố điện thoại không chính xác";
+                }
+                else if (!Regex.IsMatch(txtEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                {
+                    tb += "\nEmail không hợp lệ";
+                }
+            }
+            if (tb != "")
+            {
+                MessageBox.Show(tb, "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void btnThem(object sender, RoutedEventArgs e)
-        {  
-                NhanVien nvMoi = new NhanVien();
-                nvMoi.MaNv = GetAutoStaffCodeFromSqlServer();
-                nvMoi.TenNv = txtTen.Text;
-                nvMoi.DiaChi = txtDiaChi.Text;
-                nvMoi.SoDt = txtDienThoai.Text;
-                nvMoi.Email = txtEmail.Text;
-            if (radNam.IsChecked == true)
+        {
+            try
             {
-                nvMoi.GioiTinh = true; // Nam
+                if (CheckDL())
+                {
+                    NhanVien nvMoi = new NhanVien();
+                    nvMoi.MaNv = GetAutoStaffCodeFromSqlServer();
+                    nvMoi.TenNv = txtTen.Text;
+                    nvMoi.DiaChi = txtDiaChi.Text;
+                    nvMoi.SoDt = txtDienThoai.Text;
+                    nvMoi.Email = txtEmail.Text;
+                    if (radNam.IsChecked == true)
+                    {
+                        nvMoi.GioiTinh = true; // Nam
+                    }
+                    else if (radNu.IsChecked == true)
+                    {
+                        nvMoi.GioiTinh = false; // Nữ
+                    }
+                    db.NhanViens.Add(nvMoi);
+                    db.SaveChanges();
+                    MessageBox.Show("Thêm mới thành công", "Thong bao");
+                    HienThiDuLieu();
+                }
             }
-            else if (radNu.IsChecked == true)
+            catch(Exception ex)
             {
-                nvMoi.GioiTinh = false; // Nữ
+                MessageBox.Show("Có lỗi khi thêm: " + ex.Message);
             }
-            db.NhanViens.Add(nvMoi);
-            db.SaveChanges();
-            MessageBox.Show("Thêm mới thành công", "Thong bao");
-            HienThiDuLieu();
         }
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
         {
-            Type t = dgvNhanVien.SelectedItem.GetType();
-            PropertyInfo[] p = t.GetProperties();
-            var maNV = p[0].GetValue(dgvNhanVien.SelectedValue).ToString();
-            var nvXoa = db.NhanViens.SingleOrDefault(nv => nv.MaNv.Equals(maNV));
-            if (nvXoa != null)
+            try
             {
-                MessageBoxResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
-                if (rs == MessageBoxResult.Yes)
+                if (dgvNhanVien.SelectedItem != null)
                 {
-                    db.NhanViens.Remove(nvXoa);
-                    db.SaveChanges();
-                    MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo");
-                    HienThiDuLieu();
+                    Type t = dgvNhanVien.SelectedItem.GetType();
+                    PropertyInfo[] p = t.GetProperties();
+                    var maNV = p[0].GetValue(dgvNhanVien.SelectedValue).ToString();
+                    var nvXoa = db.NhanViens.SingleOrDefault(nv => nv.MaNv.Equals(maNV));
+                    if (nvXoa != null)
+                    {
+                        MessageBoxResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
+                        if (rs == MessageBoxResult.Yes)
+                        {
+                            db.NhanViens.Remove(nvXoa);
+                            db.SaveChanges();
+                            MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo");
+                            HienThiDuLieu();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn cần chọn sản phẩm cần xóa!", "Thông báo");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Không tìm thấy sản phẩm cần sửa!", "Thông báo");
+                MessageBox.Show("Có lỗi khi xóa: ", ex.Message);
             }
         }
 
@@ -97,31 +144,44 @@ namespace Project_BookStore
 
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
-            Type t = dgvNhanVien.SelectedItem.GetType();
-            PropertyInfo[] p = t.GetProperties();
-            var maNV = p[0].GetValue(dgvNhanVien.SelectedValue).ToString();
-            var nvSua = db.NhanViens.SingleOrDefault(nv => nv.MaNv.Equals(maNV));
-            if (nvSua != null)
+            try
             {
-                nvSua.TenNv = txtTen.Text;
-                nvSua.DiaChi = txtDiaChi.Text;
-                nvSua.SoDt = txtDienThoai.Text;
-                nvSua.Email = txtEmail.Text;
-                if (radNam.IsChecked == true)
+                if (CheckDL())
                 {
-                    nvSua.GioiTinh = true; 
+                    if (dgvNhanVien.SelectedItem != null)
+                    {
+                        Type t = dgvNhanVien.SelectedItem.GetType();
+                        PropertyInfo[] p = t.GetProperties();
+                        var maNV = p[0].GetValue(dgvNhanVien.SelectedValue).ToString();
+                        var nvSua = db.NhanViens.SingleOrDefault(nv => nv.MaNv.Equals(maNV));
+                        if (nvSua != null)
+                        {
+                            nvSua.TenNv = txtTen.Text;
+                            nvSua.DiaChi = txtDiaChi.Text;
+                            nvSua.SoDt = txtDienThoai.Text;
+                            nvSua.Email = txtEmail.Text;
+                            if (radNam.IsChecked == true)
+                            {
+                                nvSua.GioiTinh = true;
+                            }
+                            else if (radNu.IsChecked == true)
+                            {
+                                nvSua.GioiTinh = false;
+                            }
+                            db.SaveChanges();
+                            MessageBox.Show("Sửa nhân viên thành công!", "Thông báo");
+                            HienThiDuLieu();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên cần sửa!", "Thông báo");
+                    }
                 }
-                else if (radNu.IsChecked == true)
-                {
-                    nvSua.GioiTinh = false; 
-                }
-                db.SaveChanges();
-                MessageBox.Show("Sửa nhân viên thành công!", "Thông báo");
-                HienThiDuLieu();
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Không tìm thấy nhân viên cần sửa!", "Thông báo");
+                MessageBox.Show("Có lỗi khi sửa: ", ex.Message);
             }
         }
 
@@ -209,6 +269,14 @@ namespace Project_BookStore
                     return maHd;
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            txtDiaChi.Text = "";
+            txtDienThoai.Text = "";
+            txtEmail.Text = "";
+            txtTen.Text = "";
         }
     }
 }

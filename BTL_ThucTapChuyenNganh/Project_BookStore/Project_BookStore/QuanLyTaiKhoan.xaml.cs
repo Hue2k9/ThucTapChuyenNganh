@@ -93,9 +93,9 @@ namespace Project_BookStore
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi xảy ra", "Thông báo");
+                MessageBox.Show("Có lỗi xảy ra", ex.Message);
             }
         }
 
@@ -122,9 +122,9 @@ namespace Project_BookStore
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi xảy ra", "Thông báo");
+                MessageBox.Show("Có lỗi xảy ra", ex.Message);
             }
 
         }
@@ -153,9 +153,9 @@ namespace Project_BookStore
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Có lỗi xảy ra", "Thông báo");
+                MessageBox.Show("Có lỗi xảy ra", ex.Message);
             }
         }
 
@@ -166,9 +166,38 @@ namespace Project_BookStore
 
         private void btn_thoat_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
             DanhMucQuanLy danhMucQuanLy = new DanhMucQuanLy();
+            this.Close();
             danhMucQuanLy.Show();
+        }
+
+        private void data_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (data.SelectedItem != null)
+            {
+                try
+                {
+                    Type t = data.SelectedItem.GetType();
+                    PropertyInfo[] p = t.GetProperties();
+                    username.Text = p[0].GetValue(data.SelectedValue).ToString();
+                    password.Text = p[1].GetValue(data.SelectedValue).ToString();
+                    phanquyen.Text = p[2].GetValue(data.SelectedValue).ToString();
+                    manv.Text = p[3].GetValue(data.SelectedValue).ToString();
+                   
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Có lỗi khi chọn hàng" + ex.Message);
+                }
+            }
+        }
+
+        private void btnDatLai_Click(object sender, RoutedEventArgs e)
+        {
+            username.Text = "";
+            password.Text = "";
+            phanquyen.Text = "";
+            manv.Text = "";
         }
     }
 }

@@ -38,5 +38,6 @@
         <Label Content="QUẢN LÝ NHÂN VIÊN" FontWeight="Bold" Foreground="Red" FontSize="20" HorizontalAlignment="Left" Margin="271,30,0,0" VerticalAlignment="Top" Width="292" Height="45"/>
         <Button x:Name="btnThoat" Content="Thoát" HorizontalAlignment="Left" Margin="722,30,0,0" VerticalAlignment="Top" Height="25" Width="68" Click="btnThoat_Click"/>
         <TextBox x:Name="txtDiaChi" HorizontalAlignment="Left" Margin="552,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="30"/>
+        <Button Content="Đặt lại" HorizontalAlignment="Left" Margin="439,209,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click"/>
     </Grid>
 </Window>

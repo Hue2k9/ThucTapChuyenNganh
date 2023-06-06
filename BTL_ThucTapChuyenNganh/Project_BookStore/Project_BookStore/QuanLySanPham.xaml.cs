@@ -123,28 +123,35 @@ namespace Project_BookStore
         {
             try
             {
-                Type t = tblSP.SelectedItem.GetType();
-                PropertyInfo[] p = t.GetProperties();
-                var maSP = p[0].GetValue(tblSP.SelectedValue).ToString();
-                var spSua = db.SanPhams.SingleOrDefault(sp => sp.MaSp.Equals(maSP));
-                if (spSua != null)
+                if (CheckDL())
                 {
-                    if (CheckDL())
+                    if (tblSP.SelectedItem != null)
                     {
-                        spSua.TenSp = txtTen.Text;
-                        spSua.SoLuongTon = int.Parse(txtSoluong.Text);
-                        spSua.GioiThieu = txtGioithieu.Text;
-                        spSua.BaoQuan = txtBaoquan.Text;
-                        spSua.GiaBan = decimal.Parse(txtGia.Text);
-                        db.SaveChanges();
-                        MessageBox.Show("Sửa thành công!", "Thong bao");
-                        HienThiSP();
+                        Type t = tblSP.SelectedItem.GetType();
+                        PropertyInfo[] p = t.GetProperties();
+                        var maSP = p[0].GetValue(tblSP.SelectedValue).ToString();
+                        var spSua = db.SanPhams.SingleOrDefault(sp => sp.MaSp.Equals(maSP));
+                        if (spSua != null)
+                        {
+                            if (CheckDL())
+                            {
+                                spSua.TenSp = txtTen.Text;
+                                spSua.SoLuongTon = int.Parse(txtSoluong.Text);
+                                spSua.GioiThieu = txtGioithieu.Text;
+                                spSua.BaoQuan = txtBaoquan.Text;
+                                spSua.GiaBan = decimal.Parse(txtGia.Text);
+                                db.SaveChanges();
+                                MessageBox.Show("Sửa thành công!", "Thong bao");
+                                HienThiSP();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn cần chọn sản phẩm cần sửa!");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy sản phẩm cần sửa!");
-                }
+              
             }
             catch (Exception e1)
             {
@@ -154,24 +161,35 @@ namespace Project_BookStore
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
         {
-            Type t = tblSP.SelectedItem.GetType();
-            PropertyInfo[] p = t.GetProperties();
-            var maSP = p[0].GetValue(tblSP.SelectedValue).ToString();
-            var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp.Equals(maSP));        
-            if (spXoa != null)
+            try
             {
-                MessageBoxResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thong bao", MessageBoxButton.YesNo);
-                if (rs == MessageBoxResult.Yes)
+                if (tblSP.SelectedItem != null)
                 {
-                    db.SanPhams.Remove(spXoa);
-                    db.SaveChanges();
-                    HienThiSP();
+                    Type t = tblSP.SelectedItem.GetType();
+                    PropertyInfo[] p = t.GetProperties();
+                    var maSP = p[0].GetValue(tblSP.SelectedValue).ToString();
+                    var spXoa = db.SanPhams.SingleOrDefault(sp => sp.MaSp.Equals(maSP));
+                    if (spXoa != null)
+                    {
+                        MessageBoxResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thong bao", MessageBoxButton.YesNo);
+                        if (rs == MessageBoxResult.Yes)
+                        {
+                            db.SanPhams.Remove(spXoa);
+                            db.SaveChanges();
+                            MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo");
+                            HienThiSP();
+                        }
+                    }
                 }
+                else
+                    {
+                        MessageBox.Show("Bạn cần chọn sản phẩm cần xóa!", "Thong bao");
+                    }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Không có sản phẩm này để xóa!", "Thong bao");
-            }
+                MessageBox.Show("Có lỗi khi xóa: ", ex.Message);
+            }                      
         }
 
         private void tblSP_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)

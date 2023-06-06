@@ -43,6 +43,7 @@
         <ComboBox x:Name="cboSanPham" HorizontalAlignment="Left" Margin="415,51,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cboNhanVien" HorizontalAlignment="Left" Margin="415,129,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btn_thoat" Content="Thoát" HorizontalAlignment="Left" Margin="736,14,0,0" VerticalAlignment="Top" Height="26" Width="54" Click="btn_thoat_Click"/>
+        <Button Content="Đặt lại" HorizontalAlignment="Left" Margin="330,163,0,0" VerticalAlignment="Top" Width="46" Click="Button_Click"/>
 
     </Grid>
 </Window>

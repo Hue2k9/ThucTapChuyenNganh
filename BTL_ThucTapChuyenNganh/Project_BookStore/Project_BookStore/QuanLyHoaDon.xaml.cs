@@ -24,6 +24,7 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Drawing;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Microsoft.EntityFrameworkCore;
 
 namespace Project_BookStore
 {
@@ -42,6 +43,28 @@ namespace Project_BookStore
 
         ThucTapChuyenNganhHTTTContext db = new ThucTapChuyenNganhHTTTContext();
 
+        private bool CheckDL()
+        {
+            string tb = "";
+            if (txtHoTen.Text == "" || txtDiaChi.Text=="" || txtSoDienThoai.Text=="" || txtSoLuong.Text=="" || txtTrangThaiDon.Text == "")
+            {
+                tb += "\nBạn phải nhập đầy đủ dữ liệu";
+            }
+            else if (int.Parse(txtSoLuong.Text) <= 0)
+            {
+                tb += "\nSố lượng nhập vào phải là số dương!";
+            }
+            else if (!Regex.IsMatch(txtSoDienThoai.Text, @"^(03|05|07|08|09)+([0-9]{8})$"))
+            {
+                tb += "\nSố điện thoại không hợp lệ!";
+            }
+            if (tb != "")
+            {
+                MessageBox.Show(tb, "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            return true;
+        }
         private void HienThiDuLieu()
         {
             var query = from hd in db.HoaDons
@@ -92,25 +115,82 @@ namespace Project_BookStore
 
         private void btnThem_Click(object sender, RoutedEventArgs e)
         {
-            HoaDon hoaDon = new HoaDon();
-            hoaDon.MaHd = GetAutoOrdersOrderCodeFromSqlServer();
-            hoaDon.DiaChi = txtDiaChi.Text;
-            hoaDon.SoLuong = int.Parse(txtSoLuong.Text);
-            hoaDon.SoDienThoai = txtSoDienThoai.Text;
-            hoaDon.ThoiGianMua = DateTime.Now;
-            hoaDon.HoTen = txtHoTen.Text;
-            hoaDon.TrangThaiDon = txtTrangThaiDon.Text;
-            SanPham sanPham = (SanPham) cboSanPham.SelectedItem;
-            hoaDon.MaSp = sanPham.MaSp;
+            try
+            {
 
-            NhanVien nhanVien = (NhanVien)cboNhanVien.SelectedItem;
-            hoaDon.MaNv = nhanVien.MaNv;
-            
-            db.HoaDons.Add(hoaDon);
-            db.SaveChanges();
-            MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo");
-            HienThiDuLieu();
+            if (CheckDL())
+            {
+                    
+                     HoaDon hoaDon = new HoaDon();
+                    hoaDon.MaHd = GetAutoOrdersOrderCodeFromSqlServer();
+                    hoaDon.DiaChi = txtDiaChi.Text;
+                    hoaDon.SoLuong = int.Parse(txtSoLuong.Text);
+                    hoaDon.SoDienThoai = txtSoDienThoai.Text;
+                    hoaDon.ThoiGianMua = DateTime.Now;
+                    hoaDon.HoTen = txtHoTen.Text;
+                    hoaDon.TrangThaiDon = txtTrangThaiDon.Text;
+                    SanPham sanPham = (SanPham)cboSanPham.SelectedItem;
+                    hoaDon.MaSp = sanPham.MaSp;
 
+                    NhanVien nhanVien = (NhanVien)cboNhanVien.SelectedItem;
+                    hoaDon.MaNv = nhanVien.MaNv;
+                    using (SqlConnection connection = new SqlConnection("Data Source=DESKTOP-56A5JQ8;Initial Catalog=ThucTapChuyenNganhHTTT;Integrated Security=True"))
+                    {
+                        connection.Open();
+                        string sqlCheckStock = "SELECT SoLuongTon FROM SanPham WHERE MaSp = @MaSp";
+                        SqlCommand checkStockCommand = new SqlCommand(sqlCheckStock, connection);
+                        checkStockCommand.Parameters.AddWithValue("@MaSp", hoaDon.MaSp);
+                        int soLuongTon = (int)checkStockCommand.ExecuteScalar();
+
+                        if (hoaDon.SoLuong > soLuongTon)
+                        {
+                            MessageBox.Show("Số sản phẩm không đủ!", "Lỗi");
+                            return;
+                        }
+                        string sql = @"
+        INSERT INTO HoaDon (MaHd, DiaChi, SoLuong, SoDienThoai, ThoiGianMua, HoTen, TrangThaiDon, MaSp, MaNv)
+        VALUES (@MaHd, @DiaChi, @SoLuong, @SoDienThoai, @ThoiGianMua, @HoTen, @TrangThaiDon, @MaSp, @MaNv);
+
+        UPDATE SanPham
+        SET SoLuongTon = SoLuongTon - @SoLuong
+        WHERE MaSp = @MaSp;
+    ";
+
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        command.Parameters.AddWithValue("@MaHd", hoaDon.MaHd);
+                        command.Parameters.AddWithValue("@DiaChi", hoaDon.DiaChi);
+                        command.Parameters.AddWithValue("@SoLuong", hoaDon.SoLuong);
+                        command.Parameters.AddWithValue("@SoDienThoai", hoaDon.SoDienThoai);
+                        command.Parameters.AddWithValue("@ThoiGianMua", hoaDon.ThoiGianMua);
+                        command.Parameters.AddWithValue("@HoTen", hoaDon.HoTen);
+                        command.Parameters.AddWithValue("@TrangThaiDon", hoaDon.TrangThaiDon);
+                        command.Parameters.AddWithValue("@MaSp", hoaDon.MaSp);
+                        command.Parameters.AddWithValue("@MaNv", hoaDon.MaNv);
+
+                        SqlTransaction transaction = connection.BeginTransaction();
+
+                        try
+                        {
+                            command.Transaction = transaction;
+                            command.ExecuteNonQuery();
+                            transaction.Commit();
+
+                            MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo");
+                            HienThiDuLieu();
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Có lỗi khi thêm: " + ex.Message, "Lỗi");
+                        }
+                    }
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi thêm: ", ex.Message);
+            }
         }
         private string GetAutoOrdersOrderCodeFromSqlServer()
         {
@@ -128,29 +208,44 @@ namespace Project_BookStore
         }
         private void btnSua_Click(object sender, RoutedEventArgs e)
         {
-            Type t = dgvHoaDon.SelectedItem.GetType();
-            PropertyInfo[] p = t.GetProperties();
-            var maHD = p[0].GetValue(dgvHoaDon.SelectedValue).ToString();
-            var hdSua = db.HoaDons.SingleOrDefault(hd => hd.MaHd.Equals(maHD));
-           if(hdSua != null)
+            try
             {
-                hdSua.HoTen = txtHoTen.Text;
-                hdSua.SoDienThoai = txtSoDienThoai.Text;
-                hdSua.DiaChi = txtDiaChi.Text;
-                hdSua.SoLuong = int.Parse(txtSoLuong.Text);
-                hdSua.TrangThaiDon = txtTrangThaiDon.Text;
-                SanPham sanPham = (SanPham)cboSanPham.SelectedItem;
-                hdSua.MaSp = sanPham.MaSp;
-                NhanVien nhanVien = (NhanVien)cboNhanVien.SelectedItem;
-                hdSua.MaNv = nhanVien.MaNv;
-                db.SaveChanges();
-                MessageBox.Show("Sửa hóa đơn thành công!", "Thông báo");
-                HienThiDuLieu();
+                if (CheckDL())
+                {
+                    if (dgvHoaDon.SelectedItem != null)
+                    {
+                        Type t = dgvHoaDon.SelectedItem.GetType();
+                        PropertyInfo[] p = t.GetProperties();
+                        var maHD = p[0].GetValue(dgvHoaDon.SelectedValue).ToString();
+                        var hdSua = db.HoaDons.SingleOrDefault(hd => hd.MaHd.Equals(maHD));
+                        if (hdSua != null)
+                        {
+                            hdSua.HoTen = txtHoTen.Text;
+                            hdSua.SoDienThoai = txtSoDienThoai.Text;
+                            hdSua.DiaChi = txtDiaChi.Text;
+                            hdSua.SoLuong = int.Parse(txtSoLuong.Text);
+                            hdSua.TrangThaiDon = txtTrangThaiDon.Text;
+                            SanPham sanPham = (SanPham)cboSanPham.SelectedItem;
+                            hdSua.MaSp = sanPham.MaSp;
+                            NhanVien nhanVien = (NhanVien)cboNhanVien.SelectedItem;
+                            hdSua.MaNv = nhanVien.MaNv;
+                            db.SaveChanges();
+                            MessageBox.Show("Sửa hóa đơn thành công!", "Thông báo");
+                            HienThiDuLieu();
+                        }
+
+                    }
+                    else
+                        {
+                            MessageBox.Show("Bạn cần chọn sản phẩm cần sửa!", "Thông báo");
+                        }
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Không tìm thấy sản phẩm cần sửa!", "Thông báo");
+                MessageBox.Show("Có lỗi khi sửa: " + ex.Message);
             }
+           
         }
 
         private void dgvHoaDon_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
@@ -180,25 +275,37 @@ namespace Project_BookStore
 
         private void btnXoa_Click(object sender, RoutedEventArgs e)
         {
-            Type t = dgvHoaDon.SelectedItem.GetType();
-            PropertyInfo[] p = t.GetProperties();
-            var maHD = p[0].GetValue(dgvHoaDon.SelectedValue).ToString();
-            var hdXoa = db.HoaDons.SingleOrDefault(hd => hd.MaHd.Equals(maHD));
-            if (hdXoa != null)
+            try
             {
-                MessageBoxResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
-                if (rs == MessageBoxResult.Yes)
+                if (dgvHoaDon.SelectedItem != null)
                 {
-                    db.HoaDons.Remove(hdXoa);
-                    db.SaveChanges();
-                    HienThiDuLieu();
+                    Type t = dgvHoaDon.SelectedItem.GetType();
+                    PropertyInfo[] p = t.GetProperties();
+                    var maHD = p[0].GetValue(dgvHoaDon.SelectedValue).ToString();
+                    var hdXoa = db.HoaDons.SingleOrDefault(hd => hd.MaHd.Equals(maHD));
+                    if (hdXoa != null)
+                    {
+                        MessageBoxResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
+                        if (rs == MessageBoxResult.Yes)
+                        {
+                            db.HoaDons.Remove(hdXoa);
+                            db.SaveChanges();
+                            MessageBox.Show("Xóa hóa đơn thành công!", "Thông báo");
+                            HienThiDuLieu();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn cần chọn hóa đơn cần xóa!", "Thông báo");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Không tìm thấy sản phẩm cần sửa!", "Thông báo");
+                MessageBox.Show("Có lỗi khi xóa hóa đơn: " + ex.Message, "Lỗi");
             }
         }
+
 
         private void btnXuatFile_Click(object sender, RoutedEventArgs e)
         {
@@ -208,13 +315,13 @@ namespace Project_BookStore
             {
                 string folderPath = folderBrowserDialog.SelectedPath;
                 string templateFilePath = @"D:\template.xlsx";
-                string fileName = "hoadon.xlsx"; 
+                string fileName = "hoadon.xlsx" + DateTime.Now.ToString("yyyyMMdd") + ".xlsx";
                 string filePath = System.IO.Path.Combine(folderPath, fileName);
                 System.IO.File.Copy(templateFilePath, filePath, true);
                 // Ghi dữ liệu vào tệp Excel
                 using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(filePath)))
                 {
-                    // Đặt LicenseContext thành LicenseContext.NonCommercial
+                
                     ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                     var query = from hd in db.HoaDons
                                 join sp in db.SanPhams on hd.MaSp equals sp.MaSp
@@ -256,6 +363,7 @@ namespace Project_BookStore
                         rowIndex++;
                     }
                     worksheet.Cells[rowIndex, 8].Value = "Tổng tiền";
+                    worksheet.Cells[3, 5].Value = "Ngày xuất: "+ DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                     worksheet.Cells[rowIndex, 9].Formula = $"=SUM({worksheet.Cells[5, 9].Address}:{worksheet.Cells[rowIndex - 1, 9].Address})";
                     
                     excelPackage.Save();
@@ -351,6 +459,15 @@ namespace Project_BookStore
             DanhMucQuanLy danhMucQuanLy = new DanhMucQuanLy();
             this.Close();
             danhMucQuanLy.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            txtDiaChi.Text = "";
+            txtHoTen.Text = "";
+            txtSoDienThoai.Text = "";
+            txtSoLuong.Text = "";
+            txtTrangThaiDon.Text = "";
         }
     }
 }

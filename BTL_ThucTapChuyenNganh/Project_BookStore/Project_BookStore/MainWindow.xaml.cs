@@ -54,7 +54,7 @@ namespace Project_BookStore
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            //Window.
+          
         }
     }
 }
