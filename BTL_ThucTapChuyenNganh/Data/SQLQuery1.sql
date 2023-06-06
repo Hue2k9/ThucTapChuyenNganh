@@ -107,6 +107,37 @@ Create table HoaDon
 	constraint fk_HD_SanPham foreign key (MaSP) references SanPham (MaSP) ON UPDATE CASCADE ON DELETE CASCADE
 ) 
 
+--trigger thêm hóa đơn
+create trigger Insert_HoaDon on HoaDon
+for insert
+as
+begin
+	if (not exists (select * from SanPham
+	     inner join inserted on SanPham.MaSp = inserted.MaSp))
+		begin
+			raiserror('Lỗi không có sản phẩm',16,1)
+			rollback transaction
+		end
+	else
+		begin
+			declare @soluong int
+			declare @soLuongBan int
+			select @soluong = SoLuongTon from SanPham
+			inner join inserted on SanPham.MaSp = inserted.MaSp
+			select @soLuongBan = inserted.SoLuong from inserted
+			if (@soluong < @soLuongBan)
+				begin
+					raiserror(N'Số sản phẩm không đủ',16,1);
+					rollback transaction
+				end
+			else
+				update SanPham set SanPham.SoLuongTon = @soLuong - @soLuongBan
+				from SanPham inner join inserted
+				on SanPham.MaSp = inserted.MaSp
+		end
+end
+
+
 insert into SanPham values (dbo.Auto_Products_ProductCode(),'De men',30,'Day la tac pham kinh kien cua nha van To Hoai',50000,'Bao quan noi kho thoang');
 insert into SanPham values (dbo.Auto_Products_ProductCode(),'Tam Cam',50,'Truyen thuoc the loai truyen co tich dan gian Viet Nam',50000,'Bao quan noi kho thoang');
 insert into SanPham values (dbo.Auto_Products_ProductCode(),'So Dua',40,'Truyen thuoc the loai truyen co tich dan gian Viet Nam',50000,'Bao quan noi kho thoang');
@@ -127,8 +158,13 @@ insert into HoaDon values (dbo.Auto_Orders_OrderCode(),'2023-03-06',60,'Cho xac 
 insert into HoaDon values (dbo.Auto_Orders_OrderCode(),'2023-05-04',90,'Cho xac nhan','Ha Noi','Ho Ngoc Tuan','0868299812','sp003','nv003')
 insert into HoaDon values (dbo.Auto_Orders_OrderCode(),'2023-01-01',6,'Cho xac nhan','Ha Noi','Nguyen Thi Thuy','0868299812','sp001','nv004')
 
+
 select * from NhanVien
 select * from SanPham
 select * from HoaDon
 select * from TaiKhoan
+
+
+
+
 
